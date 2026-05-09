@@ -1,0 +1,18 @@
+# حماية الموقع
+exclude:
+  - config.js
+  - security.js
+  - warning.html
+  - README.md
+
+# منع عرض الملفات
+include:
+  - index.html
+
+# إعدادات الأمان
+plugins:
+  - jekyll-coffeescript
+  - jekyll-default-layout
+
+# منع الزحف
+future: true
