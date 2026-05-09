@@ -18,6 +18,13 @@
             overflow-x: hidden;
         }
         
+        /* منع السحب الأفقي نهائياً */
+        html, body {
+            overflow-x: hidden !important;
+            max-width: 100% !important;
+            position: relative;
+        }
+        
         .bg-animation {
             position: fixed;
             top: 0;
@@ -46,6 +53,8 @@
             position: relative;
             z-index: 2;
             min-height: 100vh;
+            overflow-x: hidden !important;
+            max-width: 100%;
         }
         
         .sidebar {
@@ -58,6 +67,7 @@
             top: 0;
             height: 100vh;
             overflow-y: auto;
+            overflow-x: hidden;
             transition: all 0.3s ease;
             z-index: 10;
         }
@@ -105,6 +115,7 @@
             color: #cbdcd6;
             cursor: pointer;
             transition: all 0.2s;
+            white-space: nowrap;
         }
         .sidebar-item i { width: 24px; color: #E2B13B; }
         .sidebar-item:hover { background: rgba(226, 177, 59, 0.1); color: #FFE2A4; }
@@ -114,10 +125,11 @@
         .main-content {
             flex: 1;
             padding: 2rem 2rem;
-            overflow-x: hidden;
+            overflow-x: hidden !important;
+            max-width: 100%;
         }
         
-        .hero-section { text-align: center; margin-bottom: 2rem; }
+        .hero-section { text-align: center; margin-bottom: 2rem; overflow-x: hidden; }
         .hero-section h1 { 
             font-size: 2.5rem; 
             font-weight: 800; 
@@ -128,6 +140,8 @@
             display: inline-flex; 
             align-items: center; 
             gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
         .hero-section h1 i { color: #E2B13B; font-size: 2rem; background: none; }
         .glow-text { font-size: 0.85rem; opacity: 0.8; margin-top: 5px; display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
@@ -171,7 +185,7 @@
             border-color: transparent;
         }
         
-        .search-section { transition: all 0.3s ease; overflow: hidden; }
+        .search-section { transition: all 0.3s ease; overflow-x: hidden; }
         .search-section.hidden { display: none; }
         
         .search-card {
@@ -184,6 +198,7 @@
             gap: 10px;
             margin-bottom: 2rem;
             border: 1px solid rgba(226, 177, 59, 0.2);
+            flex-wrap: wrap;
         }
         .search-card input {
             flex: 1;
@@ -194,6 +209,7 @@
             font-family: 'Cairo', sans-serif;
             color: white;
             outline: none;
+            min-width: 150px;
         }
         .search-card input::placeholder { color: rgba(255, 255, 255, 0.5); }
         .search-card button {
@@ -224,7 +240,7 @@
         
         .results-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 1.5rem;
             margin-top: 1rem;
         }
@@ -238,12 +254,14 @@
             border: 1px solid rgba(226, 177, 59, 0.15);
             cursor: pointer;
             position: relative;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
         .result-card:hover { transform: translateY(-5px); border-color: #E2B13B; }
         .result-title { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
-        .result-title h3 { font-size: 1.2rem; font-weight: 700; color: #FFE2A4; }
+        .result-title h3 { font-size: 1.2rem; font-weight: 700; color: #FFE2A4; word-break: break-word; }
         .result-title i { color: #E2B13B; }
-        .result-desc { color: #cbdcd6; font-size: 0.85rem; line-height: 1.5; margin-bottom: 8px; }
+        .result-desc { color: #cbdcd6; font-size: 0.85rem; line-height: 1.5; margin-bottom: 8px; word-break: break-word; }
         .result-meta { margin-top: 10px; display: flex; gap: 12px; font-size: 0.65rem; flex-wrap: wrap; align-items: center; }
         
         .article-modal {
@@ -262,6 +280,7 @@
             opacity: 0;
             visibility: hidden;
             transition: all 0.4s ease;
+            overflow: hidden;
         }
         .article-modal.open { opacity: 1; visibility: visible; }
         
@@ -273,7 +292,21 @@
             max-width: 850px;
             max-height: 85vh;
             overflow-y: auto;
+            overflow-x: hidden !important;
             border: 1px solid rgba(226, 177, 59, 0.3);
+        }
+        
+        /* تخصيص شريط التمرير العمودي فقط */
+        .modal-content::-webkit-scrollbar {
+            width: 6px;
+        }
+        .modal-content::-webkit-scrollbar-track {
+            background: #0f231d;
+            border-radius: 10px;
+        }
+        .modal-content::-webkit-scrollbar-thumb {
+            background: #E2B13B;
+            border-radius: 10px;
         }
         
         .modal-header {
@@ -285,6 +318,7 @@
             border-bottom: 2px solid rgba(226, 177, 59, 0.3);
             position: sticky;
             top: 0;
+            z-index: 5;
         }
         .close-modal {
             background: rgba(226, 177, 59, 0.15);
@@ -294,11 +328,38 @@
             height: 38px;
             border-radius: 50%;
             cursor: pointer;
+            flex-shrink: 0;
         }
         
-        .article-body { padding: 1.5rem; color: #e0ede8; line-height: 1.8; direction: rtl; font-size: 0.95rem; }
-        .article-body p { margin-bottom: 1rem; text-align: justify; }
-        .article-body h1 { font-size: 1.4rem; color: #FFE2A4; margin-bottom: 1rem; }
+        .article-body {
+            padding: 1.5rem;
+            color: #e0ede8;
+            line-height: 1.8;
+            direction: rtl;
+            font-size: 0.95rem;
+            overflow-x: hidden !important;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            word-break: break-word;
+        }
+        .article-body p {
+            margin-bottom: 1rem;
+            text-align: justify;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        .article-body h1 {
+            font-size: 1.4rem;
+            color: #FFE2A4;
+            margin-bottom: 1rem;
+            word-break: break-word;
+        }
+        .article-body h2, .article-body h3, .article-body h4 {
+            word-break: break-word;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            color: #FFE2A4;
+        }
         
         .article-info {
             display: flex;
@@ -323,6 +384,7 @@
             font-size: 0.7rem;
             margin-bottom: 1rem;
             color: #E2B13B;
+            flex-wrap: wrap;
         }
         
         .show-more-btn {
@@ -337,14 +399,27 @@
             margin: 0.5rem 0;
         }
         
-        .full-content { display: none; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(226, 177, 59, 0.2); }
+        .full-content {
+            display: none;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(226, 177, 59, 0.2);
+            overflow-x: hidden !important;
+            word-wrap: break-word;
+        }
         .full-content.visible { display: block; }
         .full-content img {
             max-width: 100%;
+            height: auto;
             max-height: 300px;
             object-fit: contain;
             border-radius: 16px;
             margin: 0.5rem auto;
+            display: block;
+        }
+        .full-content table, .summary-content table {
+            max-width: 100%;
+            overflow-x: auto;
             display: block;
         }
         
@@ -354,6 +429,7 @@
             border-radius: 40px;
             padding: 2rem;
             text-align: center;
+            word-wrap: break-word;
         }
         
         .spinner {
@@ -380,6 +456,22 @@
             .sidebar-toggle { display: flex; align-items: center; justify-content: center; }
             .main-content { padding: 1rem; }
             .hero-section h1 { font-size: 1.8rem; }
+            .search-card { border-radius: 30px; }
+            .search-card button { padding: 8px 18px; }
+            .modal-content { max-width: 95%; }
+            .article-body { padding: 1rem; }
+        }
+        
+        @media (max-width: 480px) {
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+            .source-bar .source-btn {
+                padding: 6px 12px;
+                font-size: 0.75rem;
+            }
+            .hero-section h1 { font-size: 1.5rem; }
+            .glow-text { flex-direction: column; gap: 5px; }
         }
         
         footer { text-align: center; margin-top: 2rem; padding-top: 1rem; font-size: 0.7rem; opacity: 0.6; border-top: 1px solid rgba(226,177,59,0.1); }
@@ -398,6 +490,19 @@
         }
         .article-body sup, .full-content sup, .summary-content sup {
             display: none !important;
+        }
+        
+        /* منع التمرير الأفقي للمحتوى */
+        .summary-content, .full-content {
+            overflow-x: hidden !important;
+        }
+        .summary-content p, .full-content p {
+            word-break: break-word;
+            white-space: normal;
+        }
+        .summary-content img, .full-content img {
+            max-width: 100%;
+            height: auto;
         }
     </style>
 </head>
@@ -559,6 +664,31 @@ let fullContentWithImages = '';
 let currentSource = 'wikipedia';
 let currentSection = 'home';
 let isSectionMode = false;
+
+// منع السحب باللمس على الشاشات
+document.body.addEventListener('touchstart', function(e) {
+    if (e.touches.length === 1) {
+        const touch = e.touches[0];
+        const startX = touch.clientX;
+        let moved = false;
+        
+        const onTouchMove = function(e2) {
+            const deltaX = e2.touches[0].clientX - startX;
+            if (Math.abs(deltaX) > 10 && !moved) {
+                moved = true;
+                e2.preventDefault();
+            }
+        };
+        
+        const onTouchEnd = function() {
+            document.removeEventListener('touchmove', onTouchMove);
+            document.removeEventListener('touchend', onTouchEnd);
+        };
+        
+        document.addEventListener('touchmove', onTouchMove, { passive: false });
+        document.addEventListener('touchend', onTouchEnd);
+    }
+}, { passive: false });
 
 sidebarToggle.addEventListener('click', () => {
     sidebar.classList.toggle('open');
