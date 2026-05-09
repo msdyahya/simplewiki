@@ -1,0 +1,25 @@
+# منع البوتات الضارة والسماح للبوتات الجيدة
+User-agent: *
+Allow: /
+Crawl-delay: 5
+
+# منع البوتات السيئة
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# منع الوصول إلى صفحات معينة
+Disallow: /api/
+Disallow: /private/
+Disallow: /admin/
+
+# موقع الملف
+Sitemap: https://YOUR-USERNAME.github.io/REPOSITORY-NAME/sitemap.xml
