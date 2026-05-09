@@ -23,3 +23,21 @@ Disallow: /admin/
 
 # موقع الملف
 Sitemap: https://YOUR-USERNAME.github.io/REPOSITORY-NAME/sitemap.xml
+# السماح لجميع محركات البحث بالفهرسة
+User-agent: *
+Allow: /
+Crawl-delay: 2
+
+# منع فهرسة صفحات معينة
+Disallow: /warning.html
+Disallow: /config.js
+Disallow: /security-ultimate.js
+Disallow: /honey-pot.js
+Disallow: /private/
+Disallow: /admin/
+
+# مواقع خريطة الموقع
+Sitemap: https://YOUR-USERNAME.github.io/REPOSITORY-NAME/sitemap.xml
+
+# إرشادات إضافية
+Host: https://YOUR-USERNAME.github.io/REPOSITORY-NAME/
