@@ -1,96 +1,12 @@
 <!DOCTYPE html>
 <html dir="rtl" lang="ar">
 <head>
-    <!-- ========================================== -->
-    <!-- أنظمة الحماية المتقدمة - تحميل أولاً -->
-    <!-- ========================================== -->
-    <script src="config.js"></script>
-    <script src="anti-dev.js"></script>
-    <script src="security.js"></script>
-    <script src="security-ultimate.js"></script>
-    <script src="honey-pot.js"></script>
-    
-    <!-- ========================================== -->
-    <!-- حماية CSP و Meta Tags -->
-    <!-- ========================================== -->
-    <meta http-equiv="Content-Security-Policy" content="
-        default-src 'self';
-        script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com;
-        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-        font-src 'self' https://fonts.gstatic.com;
-        connect-src 'self' https://ar.wikipedia.org https://ar.wikibooks.org https://ar.wiktionary.org;
-        img-src 'self' https: data:;
-        frame-src 'none';
-        base-uri 'self';
-        form-action 'self';
-    ">
-    
-    <meta http-equiv="X-Frame-Options" content="DENY">
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
-    <meta name="referrer" content="strict-origin-when-cross-origin">
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    
-    <!-- ========================================== -->
-    <!-- SEO وتحسين محركات البحث -->
-    <!-- ========================================== -->
-    <title>SimpleWiki | موسوعة مبسطة - رايقة المعرفة</title>
-    <meta name="description" content="SimpleWiki - موسوعة عربية مبسطة خالية من المراجع والهوامش. ابحث في ملايين المقالات العلمية والتاريخية والفلسفية بسهولة">
-    <meta name="keywords" content="موسوعة, بحث, معرفة, SimpleWiki, رايقة المعرفة, ويكيبيديا مبسطة, بحث علمي, مقالات, ثقافة, علوم, تاريخ, فلسفة">
-    <meta name="author" content="MSD Team - Yahya El Messaoudi">
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
-    <meta name="googlebot" content="index, follow">
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="SimpleWiki - موسوعة المعرفة المبسطة">
-    <meta property="og:description" content="موسوعة عربية مبسطة خالية من التعقيدات. ابحث وتعلم بسهولة">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="ar_AR">
-    <meta property="og:site_name" content="SimpleWiki">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="SimpleWiki - موسوعة المعرفة المبسطة">
-    <meta name="twitter:description" content="ابحث وتعلم بسهولة في أكبر موسوعة عربية مبسطة">
-    
-    <!-- Schema.org -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "SimpleWiki",
-        "alternateName": "رايقة المعرفة",
-        "description": "موسوعة عربية مبسطة خالية من المراجع والهوامش",
-        "inLanguage": "ar",
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": {
-                "@type": "EntryPoint",
-                "urlTemplate": "/?search={search_term_string}"
-            },
-            "query-input": "required name=search_term_string"
-        }
-    }
-    </script>
-    
-    <link rel="canonical" href="https://YOUR-USERNAME.github.io/REPOSITORY-NAME/">
-    <link rel="alternate" hreflang="ar" href="https://YOUR-USERNAME.github.io/REPOSITORY-NAME/">
-    <link rel="sitemap" type="application/xml" title="Sitemap" href="sitemap.xml">
-    
-    <!-- أيقونات الموقع -->
-    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
-    
-    <!-- تحسين السرعة -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="dns-prefetch" href="https://ar.wikipedia.org">
-    
-    <!-- الخطوط -->
+    <title>The Gost موسوعة | المعرفة العصرية</title>
+    <meta name="description" content="The Gost موسوعة - منصة معرفية عربية مبسطة خالية من التعقيدات">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
@@ -100,13 +16,6 @@
             font-family: 'Cairo', sans-serif;
             color: #f0f3f8;
             overflow-x: hidden;
-        }
-        
-        body, button, input, .sidebar-item, .result-card, .article-body, .modal-content, 
-        .source-btn, .badge-msd, footer, .glow-text, .hero-section h1, .result-title h3, 
-        .result-desc, .result-meta, .verification-badge, .show-more-btn, .state-container, 
-        p, h1, h2, h3, h4, h5, h6, span, div, a, li, .sidebar-section-title {
-            font-family: 'Cairo', sans-serif !important;
         }
         
         .bg-animation {
@@ -479,6 +388,17 @@
         ::-webkit-scrollbar { width: 4px; }
         ::-webkit-scrollbar-track { background: #0f231d; }
         ::-webkit-scrollbar-thumb { background: #E2B13B; border-radius: 10px; }
+        
+        .article-body a, .full-content a, .summary-content a {
+            text-decoration: none;
+            color: inherit;
+            pointer-events: none;
+            cursor: default;
+            border-bottom: none !important;
+        }
+        .article-body sup, .full-content sup, .summary-content sup {
+            display: none !important;
+        }
     </style>
 </head>
 <body>
@@ -489,20 +409,38 @@
 <div class="app-wrapper">
     <div class="sidebar" id="sidebar">
         <div class="sidebar-header">
-            <h3><i class="fas fa-book-open"></i> SimpleWiki</h3>
-            <p>رايقة المعرفة</p>
+            <h3><i class="fas fa-book-open"></i> The Gost موسوعة</h3>
+            <p>معرفة عصرية · The Ghost Team</p>
         </div>
         <div class="sidebar-section">
             <div class="sidebar-section-title"><i class="fas fa-folder"></i> الأقسام الرئيسية</div>
-            <div class="sidebar-item active" data-section="home"><i class="fas fa-home"></i> <span>الرئيسية</span></div>
-            <div class="sidebar-item" data-section="philosophy"><i class="fas fa-brain"></i> <span>الفلسفة</span></div>
-            <div class="sidebar-item" data-section="science"><i class="fas fa-flask"></i> <span>العلوم</span></div>
-            <div class="sidebar-item" data-section="history"><i class="fas fa-landmark"></i> <span>التاريخ</span></div>
-            <div class="sidebar-item" data-section="technology"><i class="fas fa-microchip"></i> <span>التقنية</span></div>
-            <div class="sidebar-item" data-section="arts"><i class="fas fa-palette"></i> <span>الفنون</span></div>
-            <div class="sidebar-item" data-section="literature"><i class="fas fa-feather-alt"></i> <span>الأدب</span></div>
-            <div class="sidebar-item" data-section="religion"><i class="fas fa-mosque"></i> <span>الدين والتصوف</span></div>
-            <div class="sidebar-item" data-section="sports"><i class="fas fa-futbol"></i> <span>الرياضة</span></div>
+            <div class="sidebar-item active" data-section="home">
+                <i class="fas fa-home"></i> <span>الرئيسية</span>
+            </div>
+            <div class="sidebar-item" data-section="philosophy">
+                <i class="fas fa-brain"></i> <span>الفلسفة</span>
+            </div>
+            <div class="sidebar-item" data-section="science">
+                <i class="fas fa-flask"></i> <span>العلوم</span>
+            </div>
+            <div class="sidebar-item" data-section="history">
+                <i class="fas fa-landmark"></i> <span>التاريخ</span>
+            </div>
+            <div class="sidebar-item" data-section="technology">
+                <i class="fas fa-microchip"></i> <span>التقنية</span>
+            </div>
+            <div class="sidebar-item" data-section="arts">
+                <i class="fas fa-palette"></i> <span>الفنون</span>
+            </div>
+            <div class="sidebar-item" data-section="literature">
+                <i class="fas fa-feather-alt"></i> <span>الأدب</span>
+            </div>
+            <div class="sidebar-item" data-section="religion">
+                <i class="fas fa-mosque"></i> <span>الدين والتصوف</span>
+            </div>
+            <div class="sidebar-item" data-section="sports">
+                <i class="fas fa-futbol"></i> <span>الرياضة</span>
+            </div>
         </div>
         <div class="sidebar-section">
             <div class="sidebar-section-title"><i class="fas fa-cog"></i> مصادر البحث</div>
@@ -511,18 +449,19 @@
             <div class="sidebar-item" data-source="wiktionary"><i class="fas fa-language"></i> <span>ويكاموس</span></div>
         </div>
         <div class="sidebar-section">
-            <div class="sidebar-section-title"><i class="fas fa-chart-line"></i> عن الموقع</div>
-            <div class="sidebar-item" data-section="about"><i class="fas fa-info-circle"></i> <span>عن SimpleWiki</span></div>
+            <div class="sidebar-section-title"><i class="fas fa-users"></i> فريق التطوير</div>
+            <div class="sidebar-item" data-section="about"><i class="fas fa-ghost"></i> <span>The Ghost Team</span></div>
             <div class="sidebar-item" data-section="contact"><i class="fas fa-envelope"></i> <span>اتصل بنا</span></div>
         </div>
     </div>
     
     <div class="main-content">
         <div class="hero-section">
-            <h1><i class="fas fa-book-open"></i> SimpleWiki</h1>
+            <h1><i class="fas fa-book-open"></i> The Gost موسوعة</h1>
             <div class="glow-text">
-                <span class="badge-msd"><i class="fas fa-check-circle"></i> تم التحقق بواسطة MSD Team</span>
+                <span class="badge-msd"><i class="fas fa-check-circle"></i> تم التحقق بواسطة The Ghost Team</span>
                 <span class="badge-msd"><i class="fas fa-bolt"></i> محتوى مبسط خالٍ من المراجع</span>
+                <span class="badge-msd"><i class="fas fa-fire"></i> المعرفة بلا قيود</span>
             </div>
         </div>
         
@@ -546,15 +485,15 @@
         <div id="resultsArea">
             <div class="state-container">
                 <i class="fas fa-crown" style="font-size: 2rem; color: #E2B13B;"></i>
-                <h3 style="margin-top: 0.5rem;">مرحباً بك في SimpleWiki</h3>
+                <h3 style="margin-top: 0.5rem;">مرحباً بك في The Gost موسوعة</h3>
                 <p>✓ موسوعة مبسطة خالية من التعقيدات</p>
-                <p style="font-size: 0.8rem;">✓ اختر قسماً من القائمة الجانبية</p>
+                <p style="font-size: 0.8rem;">✓ مطور بواسطة The Ghost Team</p>
                 <p style="font-size: 0.7rem; margin-top: 0.5rem;"><i class="fas fa-fire"></i> المواضيع الأكثر بحثاً تظهر عليها شارة "رائج"</p>
             </div>
         </div>
         
         <footer>
-            <i class="fas fa-shield-alt"></i> SimpleWiki · محتوى مبسط للجميع · تم التحقق بواسطة MSD Team
+            <i class="fas fa-shield-alt"></i> The Gost موسوعة · محتوى عصري مبسط · تم التطوير بواسطة The Ghost Team
         </footer>
     </div>
 </div>
@@ -605,7 +544,6 @@ function isTrending(title) {
     );
 }
 
-// عناصر DOM
 const searchInput = document.getElementById('searchInput');
 const searchBtn = document.getElementById('searchBtn');
 const resultsArea = document.getElementById('resultsArea');
@@ -625,7 +563,6 @@ let isSectionMode = false;
 sidebarToggle.addEventListener('click', () => {
     sidebar.classList.toggle('open');
 });
-
 document.addEventListener('click', (e) => {
     if (window.innerWidth <= 768 && !sidebar.contains(e.target) && !sidebarToggle.contains(e.target)) {
         sidebar.classList.remove('open');
@@ -640,7 +577,7 @@ backToSearchBtn.addEventListener('click', () => {
     
     resultsArea.innerHTML = `<div class="state-container">
         <i class="fas fa-crown" style="font-size: 2rem; color: #E2B13B;"></i>
-        <h3 style="margin-top: 0.5rem;">مرحباً بك في SimpleWiki</h3>
+        <h3 style="margin-top: 0.5rem;">مرحباً بك في The Gost موسوعة</h3>
         <p>✓ موسوعة مبسطة خالية من التعقيدات</p>
         <p style="font-size: 0.8rem;">✓ ابحث عن أي موضوع في الأعلى</p>
     </div>`;
@@ -671,14 +608,14 @@ document.querySelectorAll('.sidebar-item[data-section]').forEach(item => {
         }
         
         let searchTerms = {
-            philosophy: 'فلسفة OR فلسفي OR أفلاطون OR أرسطو',
-            science: 'علوم OR فيزياء OR كيمياء OR أحياء',
-            history: 'تاريخ OR حضارة OR قديم OR عصور',
-            technology: 'تقنية OR تكنولوجيا OR حاسوب OR ذكاء اصطناعي',
-            arts: 'فن OR فنون OR موسيقى OR تشكيل',
-            literature: 'أدب OR شعر OR قصة OR رواية',
-            religion: 'دين OR إسلام OR مسيحية OR عقيدة',
-            sports: 'رياضة OR كرة قدم'
+            philosophy: 'فلسفة',
+            science: 'علوم',
+            history: 'تاريخ',
+            technology: 'تقنية',
+            arts: 'فنون',
+            literature: 'أدب',
+            religion: 'دين',
+            sports: 'رياضة'
         };
         
         let term = searchTerms[currentSection] || '';
@@ -688,12 +625,12 @@ document.querySelectorAll('.sidebar-item[data-section]').forEach(item => {
         } else if (currentSection === 'about') {
             resultsArea.innerHTML = `<div class="state-container">
                 <i class="fas fa-info-circle" style="font-size: 2rem; color: #E2B13B;"></i>
-                <h3>عن SimpleWiki</h3>
-                <p>SimpleWiki هي موسوعة عربية مبسطة تهدف إلى تقديم المعرفة بشكل نظيف وخالٍ من المراجع والمصادر المشتتة.</p>
-                <p style="margin-top: 0.5rem;">✓ محتوى موثق من ويكيبيديا</p>
+                <h3>عن The Gost موسوعة</h3>
+                <p>منصة معرفية عربية تهدف إلى تقديم المعرفة بشكل نظيف وخالٍ من التعقيدات والمراجع.</p>
+                <p style="margin-top: 0.5rem;">✓ محتوى مبسط من ويكيبيديا</p>
                 <p>✓ يدعم الكتب التعليمية من Wikibooks</p>
                 <p>✓ يدعم معجم المصطلحات من Wiktionary</p>
-                <p style="margin-top: 0.5rem;">تم التطوير بواسطة MSD Team</p>
+                <p style="margin-top: 0.5rem;">تم التطوير بواسطة <strong>The Ghost Team</strong></p>
                 <p style="direction: ltr; margin-top: 0.5rem;">📧 yahyaelmsd@gmail.com</p>
             </div>`;
         } else if (currentSection === 'contact') {
@@ -702,7 +639,7 @@ document.querySelectorAll('.sidebar-item[data-section]').forEach(item => {
                 <h3>اتصل بنا</h3>
                 <p>للاستفسارات والاقتراحات:</p>
                 <p style="direction: ltr; text-align: center;">📧 yahyaelmsd@gmail.com</p>
-                <p style="margin-top: 0.5rem;"><i class="fab fa-wikipedia-w"></i> SimpleWiki · رايقة المعرفة</p>
+                <p style="margin-top: 0.5rem;"><i class="fab fa-wikipedia-w"></i> The Gost موسوعة · The Ghost Team</p>
             </div>`;
         }
     });
@@ -718,8 +655,8 @@ document.querySelectorAll('.sidebar-item[data-source]').forEach(item => {
         });
         const placeholders = {
             wikipedia: 'ابحث في ويكيبيديا ...',
-            wikibooks: 'ابحث في الكتب التعليمية (Wikibooks) ...',
-            wiktionary: 'ابحث في المعجم (Wiktionary) ...'
+            wikibooks: 'ابحث في الكتب التعليمية ...',
+            wiktionary: 'ابحث في المعجم ...'
         };
         searchInput.placeholder = placeholders[source];
         if (searchInput.value.trim() && !isSectionMode) searchWikipedia();
@@ -736,8 +673,8 @@ document.querySelectorAll('.source-btn').forEach(btn => {
         
         const placeholders = {
             wikipedia: 'ابحث في ويكيبيديا ...',
-            wikibooks: 'ابحث في الكتب التعليمية (Wikibooks) ...',
-            wiktionary: 'ابحث في المعجم (Wiktionary) ...'
+            wikibooks: 'ابحث في الكتب التعليمية ...',
+            wiktionary: 'ابحث في المعجم ...'
         };
         searchInput.placeholder = placeholders[currentSource];
         if (searchInput.value.trim()) searchWikipedia();
@@ -751,36 +688,41 @@ function escapeHtml(text) {
     return div.innerHTML;
 }
 
-function cleanContent(html, removeImages = false) {
+function removeAllReferencesAndLinks(html) {
     let clean = html;
-    const unwantedWords = ['عدل', 'تعديل', 'تحرير', 'مصادر', 'مراجع', 'وصلات خارجية', 'هوامش', 'ملاحظات'];
-    unwantedWords.forEach(word => { clean = clean.replace(new RegExp(`\\b${word}\\b`, 'gi'), ''); });
-    clean = clean.replace(/<table[^>]*>[\s\S]*?<\/table>/gi, '');
-    if (removeImages) clean = clean.replace(/<img[^>]*>/gi, '');
-    clean = clean.replace(/<a\s+[^>]*>|<\/a>/gi, '');
-    clean = clean.replace(/\[\d+\]/g, '');
-    clean = clean.replace(/مرجع\s*\d*/gi, '');
     clean = clean.replace(/<sup[^>]*>[\s\S]*?<\/sup>/gi, '');
-    clean = clean.replace(/<!--[\s\S]*?-->/g, '');
-    const unwantedSections = ['وجهات نظر', 'مقالات ذات صلة', 'المراجع', 'مصادر', 'وصلات خارجية'];
-    unwantedSections.forEach(pattern => {
-        clean = clean.replace(new RegExp(`<h[2-3][^>]*>\\s*${pattern}\\s*<\\/h[2-3]>[\\s\\S]*?(?=<h[2-3]|$)`, 'gi'), '');
-    });
+    clean = clean.replace(/<span[^>]*class="[^"]*mw-ref[^"]*"[^>]*>[\s\S]*?<\/span>/gi, '');
+    clean = clean.replace(/<cite[^>]*>[\s\S]*?<\/cite>/gi, '');
+    clean = clean.replace(/<a\s+[^>]*>([\s\S]*?)<\/a>/gi, '$1');
+    clean = clean.replace(/\s+href\s*=\s*["'][^"']*["']/gi, '');
+    clean = clean.replace(/\[\s*\d+\s*\]/g, '');
+    clean = clean.replace(/\[عدل\]|\[تحرير\]|\[تعديل\]/gi, '');
+    clean = clean.replace(/عدل|تحرير|تعديل/gi, '');
+    clean = clean.replace(/مرجع\s*\d*/gi, '');
+    clean = clean.replace(/المراجع|المصادر والمراجع|وصلات خارجية|هوامش|ملاحظات/gi, '');
+    clean = clean.replace(/<table[^>]*>[\s\S]*?<\/table>/gi, '');
     return clean;
 }
 
-function extractParagraphs(html, maxCount, startFrom = 0, includeImages = false) {
-    let cleaned = cleanContent(html, !includeImages);
+function extractCleanParagraphs(html, maxCount, includeImages = false) {
+    let cleaned = removeAllReferencesAndLinks(html);
     const tempDiv = document.createElement('div');
     tempDiv.innerHTML = cleaned;
+    
+    const unwantedSelectors = ['.references', '.reflist', '.mw-references', '.navbox', '.infobox', 'table', '.side-box', '.metadata'];
+    unwantedSelectors.forEach(selector => {
+        const elements = tempDiv.querySelectorAll(selector);
+        elements.forEach(el => el.remove());
+    });
+    
     const paragraphs = tempDiv.querySelectorAll('p');
     let result = '';
     let count = 0;
     
-    for (let i = startFrom; i < paragraphs.length && count < maxCount; i++) {
+    for (let i = 0; i < paragraphs.length && count < maxCount; i++) {
         let text = paragraphs[i].textContent.trim();
-        text = text.replace(/\[\d+\]/g, '').replace(/عدل|تعديل|تحرير/gi, '').replace(/\s+/g, ' ').trim();
-        if (text.length > 30) {
+        text = text.replace(/\[\d+\]/g, '').replace(/\[عدل\]|\[تحرير\]|\[تعديل\]/gi, '').replace(/\s+/g, ' ').trim();
+        if (text.length > 40) {
             result += `<p>${escapeHtml(text)}</p>`;
             count++;
         }
@@ -789,26 +731,55 @@ function extractParagraphs(html, maxCount, startFrom = 0, includeImages = false)
     if (includeImages) {
         const images = tempDiv.querySelectorAll('img');
         images.forEach(img => {
-            if (img.src && img.src.startsWith('http')) {
+            if (img.src && img.src.startsWith('http') && !img.src.includes('icon') && !img.src.includes('logo')) {
                 result += `<div style="text-align:center; margin:0.8rem 0;">
                     <img src="${img.src}" style="max-width:100%; max-height:250px; object-fit:contain; border-radius:16px;" loading="lazy" onerror="this.style.display='none'">
                 </div>`;
             }
         });
     }
-    return result;
+    
+    return result || '<p>لا يوجد محتوى نصي متاح لهذا الموضوع.</p>';
 }
 
-function prepareFullContent(html) {
-    let cleaned = cleanContent(html, false);
+function prepareCleanFullContent(html) {
+    let cleaned = removeAllReferencesAndLinks(html);
     const tempDiv = document.createElement('div');
     tempDiv.innerHTML = cleaned;
-    const paragraphs = tempDiv.querySelectorAll('p');
-    for (let i = 0; i < Math.min(8, paragraphs.length); i++) {
-        if (paragraphs[i] && paragraphs[i].remove) paragraphs[i].remove();
-    }
+    
+    const unwantedSelectors = ['.references', '.reflist', '.mw-references', '.navbox', '.infobox', 'table', '.side-box', '.metadata', '.noprint'];
+    unwantedSelectors.forEach(selector => {
+        const elements = tempDiv.querySelectorAll(selector);
+        elements.forEach(el => el.remove());
+    });
+    
+    const links = tempDiv.querySelectorAll('a');
+    links.forEach(link => {
+        const text = link.textContent;
+        const span = document.createElement('span');
+        span.textContent = text;
+        link.parentNode.replaceChild(span, link);
+    });
+    
+    const images = tempDiv.querySelectorAll('img');
+    images.forEach(img => {
+        if (img.src && img.src.startsWith('http') && !img.src.includes('icon')) {
+            img.style.maxWidth = '100%';
+            img.style.maxHeight = '250px';
+            img.style.objectFit = 'contain';
+            img.style.borderRadius = '12px';
+            img.style.display = 'block';
+            img.style.margin = '0.5rem auto';
+        } else {
+            img.remove();
+        }
+    });
+    
     let content = tempDiv.innerHTML;
-    content = content.replace(/<img/gi, '<img style="max-width:100%; max-height:300px; object-fit:contain; border-radius:16px; margin:0.5rem auto; display:block;"');
+    content = content.replace(/<a\s+[^>]*>([\s\S]*?)<\/a>/gi, '$1');
+    content = content.replace(/\s+href\s*=\s*["'][^"']*["']/gi, '');
+    content = content.replace(/\[عدل\]|\[تحرير\]|\[تعديل\]/gi, '');
+    
     return content;
 }
 
@@ -859,7 +830,8 @@ async function searchWikipedia() {
         let html = `<div style="margin-bottom: 0.8rem;"><i class="fas fa-chart-line"></i> ${results.length} نتيجة</div><div class="results-grid">`;
         for (const page of results) {
             const title = page.title;
-            const snippet = page.snippet ? page.snippet.replace(/<[^>]*>/g, '').substring(0, 100) : 'اضغط للقراءة';
+            let snippet = page.snippet ? page.snippet.replace(/<[^>]*>/g, '').substring(0, 120) : 'اضغط للقراءة';
+            snippet = snippet.replace(/\[\d+\]/g, '').replace(/\[عدل\]|\[تحرير\]|\[تعديل\]/gi, '');
             const trending = isTrending(title);
             
             html += `<div class="result-card" onclick='openArticle("${escapeHtml(title).replace(/'/g, "\\'")}")'>
@@ -871,7 +843,7 @@ async function searchWikipedia() {
                         <div class="result-desc"><i class="fas fa-quote-right"></i> ${escapeHtml(snippet)}...</div>
                         <div class="result-meta">
                             <span><i class="fas fa-check-circle"></i> موثق</span>
-                            <span class="badge"><i class="fas fa-shield-alt"></i> MSD</span>
+                            <span class="badge"><i class="fas fa-ghost"></i> Ghost Team</span>
                         </div>
                     </div>`;
         }
@@ -900,16 +872,15 @@ window.openArticle = async function(title) {
         
         if (!rawHtml) throw new Error('لا يوجد محتوى');
         
-        const summaryHtml = extractParagraphs(rawHtml, 8, 0, false);
-        fullContentWithImages = prepareFullContent(rawHtml);
+        const summaryHtml = extractCleanParagraphs(rawHtml, 10, false);
+        fullContentWithImages = prepareCleanFullContent(rawHtml);
         
         const articleInfo = await getArticleInfo(title);
-        
-        const sourceNames = { wikipedia: 'ويكيبيديا', wikibooks: 'Wikibooks', wiktionary: 'Wiktionary' };
+        const sourceNames = { wikipedia: 'ويكيبيديا', wikibooks: 'ويكيبوكس', wiktionary: 'ويكاموس' };
         
         let finalHtml = `
             <div class="verification-badge">
-                <i class="fas fa-check-circle"></i> ✓ تم التحقق بواسطة MSD Team · ${sourceNames[currentSource]}
+                <i class="fas fa-check-circle"></i> ✓ تم التحقق بواسطة The Ghost Team · ${sourceNames[currentSource]}
             </div>
             <h1>${escapeHtml(title)}</h1>
             <div class="article-info">
@@ -919,21 +890,21 @@ window.openArticle = async function(title) {
             </div>
         `;
         
-        finalHtml += `<div class="summary-content">${summaryHtml || '<p>لا يوجد محتوى كافٍ</p>'}</div>`;
+        finalHtml += `<div class="summary-content">${summaryHtml}</div>`;
         
-        if (fullContentWithImages && fullContentWithImages.trim().length > 50) {
+        if (fullContentWithImages && fullContentWithImages.trim().length > 100 && fullContentWithImages !== summaryHtml) {
             finalHtml += `<div style="text-align:center;"><button class="show-more-btn" onclick="showMore()"><i class="fas fa-arrow-down"></i> عرض المزيد</button></div>`;
+            finalHtml += `<div id="moreContainer" class="full-content"></div>`;
         }
         
-        finalHtml += `<div id="moreContainer" class="full-content"></div>`;
         finalHtml += `<div style="text-align:center; margin-top:1rem; padding-top:0.8rem; font-size:0.65rem; color:#E2B13B; border-top:1px solid rgba(226,177,59,0.2);">
-                        ✓ SimpleWiki · تم التحقق بواسطة MSD Team
+                        ✓ The Gost موسوعة · تم التطوير بواسطة The Ghost Team
                       </div>`;
         
         modalBody.innerHTML = finalHtml;
         
     } catch(e) {
-        modalBody.innerHTML = `<div class="state-container"><h3>حدث خطأ في التحميل</h3></div>`;
+        modalBody.innerHTML = `<div class="state-container"><h3>حدث خطأ في التحميل</h3><p>يرجى المحاولة مرة أخرى</p></div>`;
     }
 };
 
