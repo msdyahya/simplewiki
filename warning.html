@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚠️ تم اكتشاف اختراق | SimpleWiki</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a0a0a 0%, #0a0505 100%);
+            font-family: 'Cairo', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+        
+        .warning-container {
+            max-width: 600px;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(20px);
+            border-radius: 40px;
+            padding: 2.5rem;
+            text-align: center;
+            border: 2px solid #ff3333;
+            box-shadow: 0 0 50px rgba(255, 0, 0, 0.3);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { border-color: #ff3333; box-shadow: 0 0 20px rgba(255, 0, 0, 0.3); }
+            50% { border-color: #ff6666; box-shadow: 0 0 40px rgba(255, 0, 0, 0.5); }
+            100% { border-color: #ff3333; box-shadow: 0 0 20px rgba(255, 0, 0, 0.3); }
+        }
+        
+        .warning-icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            color: #ff4444;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        p {
+            color: #cccccc;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .reason-box {
+            background: rgba(255, 0, 0, 0.1);
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            border-radius: 16px;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            font-family: monospace;
+            font-size: 0.8rem;
+        }
+        
+        .countdown {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ff4444;
+            margin: 1rem 0;
+        }
+        
+        button {
+            background: linear-gradient(105deg, #ff4444, #cc0000);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 1rem;
+            color: white;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: all 0.2s;
+        }
+        
+        button:hover {
+            transform: scale(0.98);
+            box-shadow: 0 5px 20px rgba(255, 0, 0, 0.3);
+        }
+        
+        .footer {
+            margin-top: 2rem;
+            font-size: 0.7rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+<div class="warning-container">
+    <div class="warning-icon">⚠️🔒</div>
+    <h1>تم اكتشاف محاولة اختراق</h1>
+    <p>نظام الأمان المتقدم MSD Security قد اكتشف تغييراً غير مصرح به في كود الموقع.</p>
+    <p>تم قفل الموقع تلقائياً لحماية المحتوى والبيانات.</p>
+    
+    <div class="reason-box" id="reasonBox">
+        <strong>رمز الخطأ:</strong> <span id="errorCode">SECURITY_BREACH_DETECTED</span><br>
+        <strong>التاريخ:</strong> <span id="dateTime"></span><br>
+        <strong>عنوان IP:</strong> محمي<br>
+        <strong>المتصفح:</strong> <span id="browserInfo"></span>
+    </div>
+    
+    <div class="countdown" id="countdown">24:00:00</div>
+    <p>سيتم فتح الموقع تلقائياً بعد انتهاء فترة القفل.</p>
+    
+    <button onclick="attemptUnlock()">محاولة فتح الموقع</button>
+    
+    <div class="footer">
+        <i class="fas fa-shield-alt"></i> MSD Security System v3.0<br>
+        تم التحقق بواسطة فريق MSD Team
+    </div>
+</div>
+
+<script>
+    // الحصول على سبب القفل من الرابط
+    const urlParams = new URLSearchParams(window.location.search);
+    const reason = urlParams.get('reason') || 'UNKNOWN_VIOLATION';
+    
+    // عرض سبب القفل
+    document.getElementById('errorCode').textContent = reason;
+    document.getElementById('dateTime').textContent = new Date().toLocaleString('ar-EG');
+    document.getElementById('browserInfo').textContent = navigator.userAgent.substring(0, 50) + '...';
+    
+    // عداد تنازلي
+    let remainingSeconds = 24 * 60 * 60; // 24 ساعة
+    const countdownElement = document.getElementById('countdown');
+    
+    function updateCountdown() {
+        const hours = Math.floor(remainingSeconds / 3600);
+        const minutes = Math.floor((remainingSeconds % 3600) / 60);
+        const seconds = remainingSeconds % 60;
+        countdownElement.textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        
+        if (remainingSeconds > 0) {
+            remainingSeconds--;
+            setTimeout(updateCountdown, 1000);
+        } else {
+            // انتهت فترة القفل - محاولة فتح الموقع
+            localStorage.removeItem('msd_site_blocked');
+            localStorage.removeItem('msd_block_reason');
+            localStorage.removeItem('msd_block_time');
+            window.location.href = '/';
+        }
+    }
+    
+    updateCountdown();
+    
+    function attemptUnlock() {
+        // محاولة فتح الموقع
+        localStorage.removeItem('msd_site_blocked');
+        localStorage.removeItem('msd_block_reason');
+        localStorage.removeItem('msd_block_time');
+        window.location.href = '/';
+    }
+</script>
+</body>
+</html>
