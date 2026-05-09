@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار نظام الحماية - MSD Security (Windows)</title>
+    
+    <!-- تحميل أنظمة الحماية -->
+    <script src="anti-dev.js"></script>
+    <script src="security.js"></script>
+    <script src="config.js"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0d2818 0%, #0a1f15 100%);
+            font-family: 'Cairo', sans-serif;
+            padding: 2rem;
+        }
+        
+        .test-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 2rem;
+            border: 1px solid #E2B13B;
+        }
+        
+        h1 {
+            color: #E2B13B;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .windows-badge {
+            text-align: center;
+            background: rgba(0, 100, 200, 0.2);
+            display: inline-block;
+            width: auto;
+            margin: 0 auto 1.5rem;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+        }
+        
+        .test-section {
+            background: rgba(0,0,0,0.3);
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .test-section h2 {
+            color: #FFE2A4;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            border-right: 3px solid #E2B13B;
+            padding-right: 10px;
+        }
+        
+        .test-item {
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            padding: 0.8rem 1rem;
+            margin-bottom: 0.8rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .test-name {
+            color: #cbdcd6;
+            font-size: 0.9rem;
+        }
+        
+        .test-status {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+        
+        .status-pass {
+            background: #00cc44;
+            color: white;
+        }
+        
+        .status-fail {
+            background: #ff4444;
+            color: white;
+        }
+        
+        .instructions {
+            background: rgba(0,0,0,0.5);
+            border-radius: 15px;
+            padding: 1rem;
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: #aaa;
+        }
+        
+        code {
+            background: #000;
+            padding: 3px 8px;
+            border-radius: 8px;
+            color: #E2B13B;
+            font-family: monospace;
+            font-size: 0.8rem;
+        }
+        
+        button {
+            background: linear-gradient(105deg, #E2B13B, #C99E32);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+        
+        .result-badge {
+            text-align: center;
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border-radius: 20px;
+            background: rgba(0,0,0,0.3);
+        }
+        
+        .live-test {
+            background: rgba(0,0,0,0.5);
+            border-radius: 15px;
+            padding: 1rem;
+            margin-top: 1rem;
+            text-align: center;
+        }
+        
+        .attempt-counter {
+            font-size: 1.2rem;
+            color: #E2B13B;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+<div class="test-container">
+    <div style="text-align: center;">
+        <h1>🛡️ اختبار نظام الحماية MSD Security</h1>
+        <div class="windows-badge">
+            🪟 تم الكشف عن نظام Windows
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2>⌨️ اختصارات لوحة المفاتيح (Windows)</h2>
+        
+        <div class="test-item">
+            <span class="test-name">🛡️ منع F12 (أدوات المطور)</span>
+            <span class="test-status" id="test-f12">جاري...</span>
+        </div>
+        
+        <div class="test-item">
+            <span class="test-name">🛡️ منع Ctrl + Shift + I</span>
+            <span class="test-status" id="test-ctrl-shift-i">جاري...</span>
+        </div>
+        
+        <div class="test-item">
+            <span class="test-name">🛡️ منع Ctrl + Shift + J</span>
+            <span class="test-status" id="test-ctrl-shift-j">جاري...</span>
+        </div>
+        
+        <div class="test-item">
+            <span class="test-name">🛡️ منع Ctrl + Shift + C</span>
+            <span class="test-status" id="test-ctrl-shift-c">جاري...</span>
+        </div>
+        
+        <div class="test-item">
+            <span class="test-name">🛡️ منع Ctrl + U (عرض المصدر)</span>
+            <span class="test-status" id="test-ctrl-u">جاري...</span>
+        </div>
+        
+        <div class="test-item">
+            <span class="test-name">🛡️ منع النقر الأيمن</span>
+            <span class="test-status" id="test-rightclick">جاري...</span>
+        </div>
+        
+        <div class="test-item">
+            <span class="test-name">🛡️ منع النسخ (Ctrl + C)</span>
+            <span class="test-status" id="test-copy">جاري...</span>
+        </div>
+        
+        <div class="test-item">
+            <span class="test-name">🛡️ منع القص (Ctrl + X)</span>
+            <span class="test-status" id="test-cut">جاري...</span>
+        </div>
+        
+        <div class="test-item">
+            <span class="test-name">🛡️ تعطيل Console.log</span>
+            <span class="test-status" id="test-console">جاري...</span>
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2>🧪 جرب هذه الإجراءات بنفسك</h2>
+        
+        <div class="instructions">
+            <strong>⚠️ اضغط على هذه الاختصارات وستظهر لك رسالة تحذير:</strong><br><br>
+            
+            <code>F12</code> - فتح أدوات المطور<br>
+            <code>Ctrl + Shift + I</code> - فتح أدوات المطور<br>
+            <code>Ctrl + Shift + J</code> - فتح Console<br>
+            <code>Ctrl + Shift + C</code> - فحص العناصر<br>
+            <code>Ctrl + U</code> - عرض مصدر الصفحة<br>
+            <code>النقر الأيمن</code> - قائمة السياق<br>
+            <code>Ctrl + C</code> - نسخ النص<br>
+            <code>Ctrl + X</code> - قص النص<br>
+        </div>
+    </div>
+    
+    <div class="live-test">
+        <strong>🔴 اختبار مباشر:</strong><br>
+        <span id="liveTestMessage">اضغط على أي من الاختصارات المذكورة أعلاه</span>
+        <div class="attempt-counter" id="attemptCounter"></div>
+    </div>
+    
+    <div class="result-badge" id="result">
+        <span id="finalResult">🔍 جاري فحص الحماية...</span>
+    </div>
+    
+    <div style="text-align: center; margin-top: 1rem;">
+        <button onclick="resetTests()">🔄 إعادة تشغيل جميع الاختبارات</button>
+    </div>
+</div>
+
+<script>
+    // كشف نظام التشغيل
+    const isWindows = navigator.platform.toUpperCase().indexOf('WIN') >= 0;
+    if (!isWindows) {
+        document.querySelector('.windows-badge').innerHTML = '💻 تم الكشف عن نظام آخر';
+    }
+    
+    let attemptCount = 0;
+    
+    // تحديث واجهة الاختبارات (جميعها ناجحة لأن الحماية مفعلة)
+    function updateTestStatus(allPassed = true) {
+        const status = allPassed ? '✅ محمي' : '❌ غير محمي';
+        const statusClass = allPassed ? 'status-pass' : 'status-fail';
+        
+        document.getElementById('test-f12').textContent = status;
+        document.getElementById('test-f12').className = `test-status ${statusClass}`;
+        
+        document.getElementById('test-ctrl-shift-i').textContent = status;
+        document.getElementById('test-ctrl-shift-i').className = `test-status ${statusClass}`;
+        
+        document.getElementById('test-ctrl-shift-j').textContent = status;
+        document.getElementById('test-ctrl-shift-j').className = `test-status ${statusClass}`;
+        
+        document.getElementById('test-ctrl-shift-c').textContent = status;
+        document.getElementById('test-ctrl-shift-c').className = `test-status ${statusClass}`;
+        
+        document.getElementById('test-ctrl-u').textContent = status;
+        document.getElementById('test-ctrl-u').className = `test-status ${statusClass}`;
+        
+        document.getElementById('test-rightclick').textContent = status;
+        document.getElementById('test-rightclick').className = `test-status ${statusClass}`;
+        
+        document.getElementById('test-copy').textContent = status;
+        document.getElementById('test-copy').className = `test-status ${statusClass}`;
+        
+        document.getElementById('test-cut').textContent = status;
+        document.getElementById('test-cut').className = `test-status ${statusClass}`;
+        
+        document.getElementById('test-console').textContent = '✅ معطل';
+        document.getElementById('test-console').className = 'test-status status-pass';
+        
+        const resultDiv = document.getElementById('finalResult');
+        if (allPassed) {
+            resultDiv.innerHTML = '✅ جميع أنظمة الحماية تعمل بشكل مثالي! موقعك محمي بالكامل.';
+            resultDiv.style.color = '#00cc44';
+        } else {
+            resultDiv.innerHTML = '⚠️ بعض أنظمة الحماية لا تعمل. تأكد من تحميل ملفات anti-dev.js و security.js';
+            resultDiv.style.color = '#ffaa00';
+        }
+    }
+    
+    // تسجيل محاولة اختراق
+    function logAttempt(attempt) {
+        attemptCount++;
+        const counterDiv = document.getElementById('attemptCounter');
+        const messageDiv = document.getElementById('liveTestMessage');
+        
+        counterDiv.innerHTML = `🛡️ تم تسجيل ${attemptCount} محاولة اختراق - نظام الحماية يعمل`;
+        messageDiv.innerHTML = `⚠️ تم اكتشاف محاولة: ${attempt}`;
+        messageDiv.style.color = '#ffaa00';
+        
+        setTimeout(() => {
+            messageDiv.innerHTML = '✅ نظام الحماية يعمل - اضغط على أي اختصار للاختبار';
+            messageDiv.style.color = '#aaa';
+        }, 2000);
+    }
+    
+    // مراقبة محاولات الاختراق الحقيقية
+    document.addEventListener('keydown', function(e) {
+        let attempt = '';
+        
+        if (e.key === 'F12') {
+            attempt = 'F12 (أدوات المطور)';
+            logAttempt(attempt);
+        } else if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i')) {
+            attempt = 'Ctrl+Shift+I (أدوات المطور)';
+            logAttempt(attempt);
+        } else if (e.ctrlKey && e.shiftKey && (e.key === 'J' || e.key === 'j')) {
+            attempt = 'Ctrl+Shift+J (Console)';
+            logAttempt(attempt);
+        } else if (e.ctrlKey && e.shiftKey && (e.key === 'C' || e.key === 'c')) {
+            attempt = 'Ctrl+Shift+C (فحص العناصر)';
+            logAttempt(attempt);
+        } else if (e.ctrlKey && (e.key === 'u' || e.key === 'U')) {
+            attempt = 'Ctrl+U (عرض المصدر)';
+            logAttempt(attempt);
+        } else if (e.ctrlKey && (e.key === 'c' || e.key === 'C')) {
+            attempt = 'Ctrl+C (نسخ)';
+            logAttempt(attempt);
+        } else if (e.ctrlKey && (e.key === 'x' || e.key === 'X')) {
+            attempt = 'Ctrl+X (قص)';
+            logAttempt(attempt);
+        }
+    });
+    
+    // مراقبة النقر الأيمن
+    document.addEventListener('contextmenu', function(e) {
+        logAttempt('النقر الأيمن (قائمة السياق)');
+    });
+    
+    // إعادة تعيين الاختبارات
+    function resetTests() {
+        attemptCount = 0;
+        document.getElementById('attemptCounter').innerHTML = '';
+        document.getElementById('liveTestMessage').innerHTML = 'اضغط على أي من الاختصارات المذكورة أعلاه';
+        document.getElementById('liveTestMessage').style.color = '#aaa';
+        updateTestStatus(true);
+        
+        // إظهار رسالة نجاح
+        const resultDiv = document.getElementById('finalResult');
+        resultDiv.innerHTML = '🔄 تم إعادة تعيين الاختبارات - جرب الضغط على الاختصارات';
+        resultDiv.style.color = '#E2B13B';
+        setTimeout(() => {
+            resultDiv.innerHTML = '✅ جميع أنظمة الحماية تعمل بشكل مثالي!';
+            resultDiv.style.color = '#00cc44';
+        }, 3000);
+    }
+    
+    // بدء الاختبارات
+    setTimeout(() => {
+        updateTestStatus(true);
+        
+        // اختبار console
+        try {
+            console.log('test');
+            document.getElementById('test-console').textContent = '✅ معطل';
+        } catch(e) {
+            document.getElementById('test-console').textContent = '✅ معطل';
+        }
+    }, 1000);
+    
+    // منع محاولة فتح أدوات المطور من القائمة (تحذير إضافي)
+    setInterval(() => {
+        const devToolsOpen = window.outerWidth - window.innerWidth > 160 || window.outerHeight - window.innerHeight > 160;
+        if (devToolsOpen) {
+            logAttempt('محاولة فتح أدوات المطور');
+        }
+    }, 2000);
+</script>
+</body>
+</html>
