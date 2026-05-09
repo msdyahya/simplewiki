@@ -2,43 +2,95 @@
 <html dir="rtl" lang="ar">
 <head>
     <!-- ========================================== -->
-<!-- أنظمة الحماية المتقدمة - تحميل أولاً -->
-<!-- ========================================== -->
-<script src="config.js"></script>
-<script src="anti-dev.js"></script>
-<script src="security.js"></script>
-<script src="security-ultimate.js"></script>
-<script src="honey-pot.js"></script>
-    <!-- حماية XSS -->
-<meta http-equiv="Content-Security-Policy" content="
-    default-src 'self';
-    script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com;
-    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-    font-src 'self' https://fonts.gstatic.com;
-    connect-src 'self' https://ar.wikipedia.org https://ar.wikibooks.org https://ar.wiktionary.org;
-    img-src 'self' https: data:;
-    frame-src 'none';
-    base-uri 'self';
-    form-action 'self';
-">
-
-<!-- منع انفتاح الموقع في إطارات (Clickjacking) -->
-<meta http-equiv="X-Frame-Options" content="DENY">
-
-<!-- منع تخمين نوع المحتوى -->
-<meta http-equiv="X-Content-Type-Options" content="nosniff">
-
-<!-- تفعيل حماية XSS في المتصفحات القديمة -->
-<meta http-equiv="X-XSS-Protection" content="1; mode=block">
-
-<!-- منع المتصفح من تخمين الروابط -->
-<meta name="referrer" content="strict-origin-when-cross-origin">
+    <!-- أنظمة الحماية المتقدمة - تحميل أولاً -->
+    <!-- ========================================== -->
+    <script src="config.js"></script>
+    <script src="anti-dev.js"></script>
+    <script src="security.js"></script>
+    <script src="security-ultimate.js"></script>
+    <script src="honey-pot.js"></script>
+    
+    <!-- ========================================== -->
+    <!-- حماية CSP و Meta Tags -->
+    <!-- ========================================== -->
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com;
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+        font-src 'self' https://fonts.gstatic.com;
+        connect-src 'self' https://ar.wikipedia.org https://ar.wikibooks.org https://ar.wiktionary.org;
+        img-src 'self' https: data:;
+        frame-src 'none';
+        base-uri 'self';
+        form-action 'self';
+    ">
+    
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    
+    <!-- ========================================== -->
+    <!-- SEO وتحسين محركات البحث -->
+    <!-- ========================================== -->
     <title>SimpleWiki | موسوعة مبسطة - رايقة المعرفة</title>
-    <meta name="description" content="SimpleWiki - موسوعة عربية مبسطة خالية من المراجع والهوامش">
+    <meta name="description" content="SimpleWiki - موسوعة عربية مبسطة خالية من المراجع والهوامش. ابحث في ملايين المقالات العلمية والتاريخية والفلسفية بسهولة">
+    <meta name="keywords" content="موسوعة, بحث, معرفة, SimpleWiki, رايقة المعرفة, ويكيبيديا مبسطة, بحث علمي, مقالات, ثقافة, علوم, تاريخ, فلسفة">
+    <meta name="author" content="MSD Team - Yahya El Messaoudi">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="googlebot" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="SimpleWiki - موسوعة المعرفة المبسطة">
+    <meta property="og:description" content="موسوعة عربية مبسطة خالية من التعقيدات. ابحث وتعلم بسهولة">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ar_AR">
+    <meta property="og:site_name" content="SimpleWiki">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SimpleWiki - موسوعة المعرفة المبسطة">
+    <meta name="twitter:description" content="ابحث وتعلم بسهولة في أكبر موسوعة عربية مبسطة">
+    
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "SimpleWiki",
+        "alternateName": "رايقة المعرفة",
+        "description": "موسوعة عربية مبسطة خالية من المراجع والهوامش",
+        "inLanguage": "ar",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "/?search={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+    
+    <link rel="canonical" href="https://YOUR-USERNAME.github.io/REPOSITORY-NAME/">
+    <link rel="alternate" hreflang="ar" href="https://YOUR-USERNAME.github.io/REPOSITORY-NAME/">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="sitemap.xml">
+    
+    <!-- أيقونات الموقع -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
+    
+    <!-- تحسين السرعة -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://ar.wikipedia.org">
+    
+    <!-- الخطوط -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
@@ -50,7 +102,10 @@
             overflow-x: hidden;
         }
         
-        body, button, input, .sidebar-item, .result-card, .article-body, .modal-content, .source-btn, .badge-msd, footer, .glow-text, .hero-section h1, .result-title h3, .result-desc, .result-meta, .verification-badge, .show-more-btn, .state-container, p, h1, h2, h3, h4, h5, h6, span, div, a, li, .sidebar-section-title {
+        body, button, input, .sidebar-item, .result-card, .article-body, .modal-content, 
+        .source-btn, .badge-msd, footer, .glow-text, .hero-section h1, .result-title h3, 
+        .result-desc, .result-meta, .verification-badge, .show-more-btn, .state-container, 
+        p, h1, h2, h3, h4, h5, h6, span, div, a, li, .sidebar-section-title {
             font-family: 'Cairo', sans-serif !important;
         }
         
@@ -169,7 +224,6 @@
         .glow-text { font-size: 0.85rem; opacity: 0.8; margin-top: 5px; display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
         .badge-msd { background: rgba(226, 177, 59, 0.15); padding: 4px 12px; border-radius: 50px; font-size: 0.7rem; }
         
-        /* شارة رائج */
         .trending-badge {
             background: linear-gradient(105deg, #E2B13B, #C99E32);
             color: #0a1f18;
@@ -181,7 +235,6 @@
             align-items: center;
             gap: 4px;
         }
-        .trending-badge i { font-size: 0.6rem; }
         
         .source-bar {
             display: flex;
@@ -441,33 +494,15 @@
         </div>
         <div class="sidebar-section">
             <div class="sidebar-section-title"><i class="fas fa-folder"></i> الأقسام الرئيسية</div>
-            <div class="sidebar-item active" data-section="home">
-                <i class="fas fa-home"></i> <span>الرئيسية</span>
-            </div>
-            <div class="sidebar-item" data-section="philosophy">
-                <i class="fas fa-brain"></i> <span>الفلسفة</span>
-            </div>
-            <div class="sidebar-item" data-section="science">
-                <i class="fas fa-flask"></i> <span>العلوم</span>
-            </div>
-            <div class="sidebar-item" data-section="history">
-                <i class="fas fa-landmark"></i> <span>التاريخ</span>
-            </div>
-            <div class="sidebar-item" data-section="technology">
-                <i class="fas fa-microchip"></i> <span>التقنية</span>
-            </div>
-            <div class="sidebar-item" data-section="arts">
-                <i class="fas fa-palette"></i> <span>الفنون</span>
-            </div>
-            <div class="sidebar-item" data-section="literature">
-                <i class="fas fa-feather-alt"></i> <span>الأدب</span>
-            </div>
-            <div class="sidebar-item" data-section="religion">
-                <i class="fas fa-mosque"></i> <span>الدين والتصوف</span>
-            </div>
-            <div class="sidebar-item" data-section="sports">
-                <i class="fas fa-futbol"></i> <span>الرياضة</span>
-            </div>
+            <div class="sidebar-item active" data-section="home"><i class="fas fa-home"></i> <span>الرئيسية</span></div>
+            <div class="sidebar-item" data-section="philosophy"><i class="fas fa-brain"></i> <span>الفلسفة</span></div>
+            <div class="sidebar-item" data-section="science"><i class="fas fa-flask"></i> <span>العلوم</span></div>
+            <div class="sidebar-item" data-section="history"><i class="fas fa-landmark"></i> <span>التاريخ</span></div>
+            <div class="sidebar-item" data-section="technology"><i class="fas fa-microchip"></i> <span>التقنية</span></div>
+            <div class="sidebar-item" data-section="arts"><i class="fas fa-palette"></i> <span>الفنون</span></div>
+            <div class="sidebar-item" data-section="literature"><i class="fas fa-feather-alt"></i> <span>الأدب</span></div>
+            <div class="sidebar-item" data-section="religion"><i class="fas fa-mosque"></i> <span>الدين والتصوف</span></div>
+            <div class="sidebar-item" data-section="sports"><i class="fas fa-futbol"></i> <span>الرياضة</span></div>
         </div>
         <div class="sidebar-section">
             <div class="sidebar-section-title"><i class="fas fa-cog"></i> مصادر البحث</div>
@@ -550,7 +585,7 @@ for (let i = 0; i < 50; i++) {
     document.getElementById('bgAnimation').appendChild(span);
 }
 
-// قائمة الكلمات الرائجة (لتحديد شارة "رائج")
+// قائمة الكلمات الرائجة
 const trendingKeywords = [
     "الذكاء الاصطناعي", "AI", "chatgpt", "deepseek",
     "فلسفة", "أفلاطون", "أرسطو", "سقراط",
@@ -562,7 +597,6 @@ const trendingKeywords = [
     "الحرب العالمية", "الأندلس", "الأمويون"
 ];
 
-// دالة للتحقق مما إذا كان العنوان رائجاً
 function isTrending(title) {
     const lowerTitle = title.toLowerCase();
     return trendingKeywords.some(keyword => 
@@ -591,6 +625,7 @@ let isSectionMode = false;
 sidebarToggle.addEventListener('click', () => {
     sidebar.classList.toggle('open');
 });
+
 document.addEventListener('click', (e) => {
     if (window.innerWidth <= 768 && !sidebar.contains(e.target) && !sidebarToggle.contains(e.target)) {
         sidebar.classList.remove('open');
@@ -777,7 +812,6 @@ function prepareFullContent(html) {
     return content;
 }
 
-// جلب معلومات المقال (تاريخ النشر والتعديل)
 async function getArticleInfo(title) {
     try {
         let domain = '';
@@ -869,7 +903,6 @@ window.openArticle = async function(title) {
         const summaryHtml = extractParagraphs(rawHtml, 8, 0, false);
         fullContentWithImages = prepareFullContent(rawHtml);
         
-        // جلب معلومات المقال
         const articleInfo = await getArticleInfo(title);
         
         const sourceNames = { wikipedia: 'ويكيبيديا', wikibooks: 'Wikibooks', wiktionary: 'Wiktionary' };
